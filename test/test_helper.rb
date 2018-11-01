@@ -30,3 +30,14 @@ if ActiveSupport::TestCase.respond_to?(:fixture_path=)
   ActiveSupport::TestCase.file_fixture_path = ActiveSupport::TestCase.fixture_path + "/files"
   ActiveSupport::TestCase.fixtures :all
 end
+
+module ActiveSupport
+  class TestCase
+    def assert_has_errors_on(record, *fields)
+      missing_fields = record.errors.keys - fields.flatten
+      extra_fields = fields.flatten - record.errors.keys
+      assert missing_fields.blank?, "#{record.class} has errors on '#{missing_fields.join(', ')}'"
+      assert extra_fields.blank?, "#{record.class} doesn't have errors on '#{extra_fields.join(', ')}'"
+    end
+  end
+end
