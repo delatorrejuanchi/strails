@@ -1,0 +1,39 @@
+language: ruby
+
+env:
+  global:
+    - CC_TEST_REPORTER_ID=08c1c6b5269a7f1e7d881de9a9ac70a1a1e94bdcfad549c7ed93f68456fa14bd
+
+cache:
+  bundler: true
+  directories:
+    - $HOME/.rvm
+
+rvm:
+  - 2.5.1
+
+before_script:
+  # CodeClimate
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
+  # Database
+  - bundle exec rake app:db:create
+  - bundle exec rake app:db:migrate
+  - bundle exec rake app:db:test:prepare
+
+script:
+  - bundle exec rake test
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+
+branches:
+  only:
+    - master
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
