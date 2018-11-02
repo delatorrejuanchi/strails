@@ -1,0 +1,13 @@
+en:
+  activerecord:
+    models:
+      strails/product: Product
+      strails/option_type: Option Type
+    attributes:
+      strails/product:
+        name: Name
+        description: Description
+      strails/option_type:
+        name: Name
+        presentation: Presentation
+

@@ -5,6 +5,7 @@ require "jquery-rails"
 require "bootstrap"
 require "active_link_to"
 require "croutons"
+require "rails-i18n"
 
 module Strails
   class Engine < ::Rails::Engine
@@ -15,6 +16,10 @@ module Strails
                                          strails/frontend.css
                                          strails/backend.js
                                          strails/backend.css]
+    end
+
+    initializer "strails.i18n.available_locales" do |app|
+      app.config.i18n.available_locales = [:en]
     end
   end
 end

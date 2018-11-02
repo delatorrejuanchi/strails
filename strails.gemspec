@@ -23,5 +23,6 @@ Gem::Specification.new do |s|
   s.add_dependency "croutons"
   s.add_dependency "jquery-rails"
   s.add_dependency "rails", "~> 5.2.1"
+  s.add_dependency "rails-i18n"
   s.add_dependency "sass-rails"
 end
