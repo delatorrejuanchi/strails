@@ -5,6 +5,7 @@ Strails::Engine.routes.draw do
     root to: "dashboard#index"
 
     resources :products
+    resources :option_types
   end
 
   scope module: :frontend do

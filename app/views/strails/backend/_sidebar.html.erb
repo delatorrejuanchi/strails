@@ -6,6 +6,9 @@
     <%= active_link_to(backend_products_path, class: "sidebar-item", active: :inclusive) do %>
       <%= material_icon "local_mall" %> Products
     <% end %>
+    <%= active_link_to(backend_option_types_path, class: "sidebar-item", active: :inclusive) do %>
+      <%= material_icon "settings" %> Option Types
+    <% end %>
   </div>
   <div class="sidebar-footer">Strails version: <%= Strails::VERSION %></div>
 </div>

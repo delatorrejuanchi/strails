@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_01_231047) do
+ActiveRecord::Schema.define(version: 2018_11_02_161643) do
+
+  create_table "strails_option_types", force: :cascade do |t|
+    t.string "name"
+    t.string "presentation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "strails_products", force: :cascade do |t|
     t.string "name"
