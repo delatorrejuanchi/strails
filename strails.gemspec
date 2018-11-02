@@ -16,8 +16,11 @@ Gem::Specification.new do |s|
   s.description = "Strails is a full-stack e-commerce framework for developing online stores using Ruby on Rails"
   s.license     = "MIT"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib,vendor}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
+  s.add_dependency "active_link_to"
+  s.add_dependency "bootstrap"
+  s.add_dependency "jquery-rails"
   s.add_dependency "rails", "~> 5.2.1"
   s.add_dependency "sass-rails"
 end

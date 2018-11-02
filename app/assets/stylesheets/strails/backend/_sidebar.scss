@@ -1,0 +1,91 @@
+// scss-lint:disable PlaceholderInExtend
+// scss-lint:disable NestingDepth
+
+.sidebar {
+  @extend .text-light;
+  @extend .bg-dark;
+
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - #{$navbar-height});
+  min-height: calc(100vh - #{$navbar-height});
+  overflow: auto;
+  width: 100%;
+
+  .sidebar-content {
+    flex: 1;
+  }
+
+  .sidebar-item {
+    @extend .link-unstyled;
+    @extend .p-3;
+
+    display: block;
+    transition: background .1s ease;
+
+    &:hover,
+    &.active {
+      @extend .bg-secondary;
+    }
+  }
+
+  .sidebar-footer {
+    @extend .small;
+    @extend .text-center;
+    @extend .py-3;
+
+    border-top: 1px solid $transparent-white;
+  }
+}
+
+.sidebar-wrapper {
+
+  &.desktop {
+    display: flex;
+    margin-left: -$sidebar-width;
+    transition: margin-left .3s ease;
+    width: $sidebar-width;
+
+    &.active {
+      margin-left: 0;
+    }
+  }
+
+  &.mobile {
+    display: block;
+
+    .sidebar {
+      left: -$sidebar-width;
+      position: absolute;
+      top: $navbar-height;
+      transition: left .3s ease;
+      width: $sidebar-width;
+      z-index: 999;
+    }
+
+    .overlay {
+      background: $black;
+      height: 100%;
+      left: -100%;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      transition: opacity .3s ease 0s, left 0s linear .3s;
+      width: 100%;
+      z-index: 998;
+    }
+
+    &.active {
+      .sidebar {
+        left: 0;
+      }
+
+      .overlay {
+        left: 0;
+        opacity: .3;
+
+        transition: opacity .3s ease 0s, left 0s linear 0s;
+      }
+    }
+  }
+}

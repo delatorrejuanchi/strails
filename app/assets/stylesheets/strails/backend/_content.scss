@@ -1,0 +1,11 @@
+// scss-lint:disable PlaceholderInExtend
+
+.content {
+  @extend .p-3;
+  @extend .p-lg-5;
+
+  flex: 1;
+  max-height: calc(100vh - #{$navbar-height});
+  min-height: calc(100vh - #{$navbar-height});
+  overflow: auto;
+}

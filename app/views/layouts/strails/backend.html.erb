@@ -9,8 +9,25 @@
   <%= javascript_include_tag "strails/backend" %>
 </head>
 <body>
+  <nav class="navbar">
+    <a href="#" id="sidebarCollapse" class="sidebar-toggler">
+      <%= material_icon "menu" %>
+    </a>
+    <%= link_to "Strails", backend_root_path, class: "navbar-brand" %>
+  </nav>
 
-  <%= yield %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="sidebar-wrapper">
+        <%= render partial: "strails/backend/sidebar" %>
+      </div>
+
+      <div class="content">
+        <%= flash_messages %>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>

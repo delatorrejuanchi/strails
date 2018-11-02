@@ -1,0 +1,18 @@
+// scss-lint:disable PlaceholderInExtend
+
+.navbar {
+  @extend .sticky-top;
+  @extend .navbar-dark;
+  @extend .bg-dark;
+
+  border-bottom: 1px solid $transparent-white;
+  height: $navbar-height;
+
+  .sidebar-toggler {
+    @extend .text-light;
+  }
+
+  .navbar-brand {
+    @extend .mr-auto;
+  }
+}

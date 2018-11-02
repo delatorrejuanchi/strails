@@ -1,0 +1,76 @@
+// scss-lint:disable PlaceholderInExtend
+
+@import 'bootstrap';
+@import 'material-icons';
+
+.link-unstyled {
+  &,
+  &:visited,
+  &:hover,
+  &:active,
+  &:focus,
+  &:active:hover {
+    background-color: transparent;
+    border: inherit;
+    border-radius: inherit;
+    box-shadow: inherit;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-variant: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    outline: inherit;
+    padding: inherit;
+    text-decoration: none;
+    vertical-align: inherit;
+  }
+}
+
+.material-icons {
+  @extend .mr-3;
+
+  vertical-align: top;
+}
+
+.btn .material-icons {
+  @extend .mr-0;
+}
+
+.error-list {
+  @extend .alert;
+  @extend .alert-danger;
+
+  > ul {
+    @extend .mb-0;
+  }
+}
+
+.card-header {
+  @extend .d-flex;
+  @extend .align-items-baseline;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @extend .mb-0;
+  }
+}
+
+.table {
+  tr td {
+    vertical-align: middle;
+  }
+
+  .actions {
+    @extend .text-center;
+  }
+
+  .actions-2 {
+    width: 114px;
+  }
+}

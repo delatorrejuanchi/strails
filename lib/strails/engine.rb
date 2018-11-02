@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 require "sass-rails"
+require "jquery-rails"
+require "bootstrap"
+require "active_link_to"
 
 module Strails
   class Engine < ::Rails::Engine

@@ -1,0 +1,23 @@
+// scss-lint:disable PlaceholderInExtend
+
+.product-navigation {
+  @extend .col-lg-4;
+  @extend .order-lg-1;
+  @extend .mb-3;
+  @extend .mb-lg-0;
+}
+
+.product {
+  @extend .col-lg-8;
+  @extend .order-lg-0;
+
+  .name {
+    @extend .h3;
+    @extend .mb-0;
+  }
+
+  .actions {
+    @extend .h5;
+    @extend .mb-0;
+  }
+}
