@@ -7,8 +7,8 @@ module Strails
     class DashboardControllerTest < ActionDispatch::IntegrationTest
       include Engine.routes.url_helpers
 
-      test "should get backend root" do
-        get backend_root_url
+      test "should get dashboard index" do
+        get backend_dashboard_path
         assert_response :success
       end
     end
