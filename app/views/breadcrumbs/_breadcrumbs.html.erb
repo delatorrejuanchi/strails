@@ -1,0 +1,11 @@
+<% if breadcrumbs.count > 1 %>
+  <nav>
+    <ol class="breadcrumb">
+      <% breadcrumbs.each_with_index do |breadcrumb, index| %>
+        <% is_last = (index == breadcrumbs.count - 1) %>
+        <% content = if breadcrumb.link? then link_to(breadcrumb.label, breadcrumb.url) else breadcrumb.label end %>
+        <%= content_tag :li, content, class: "breadcrumb-item #{'active' if is_last}" %>
+      <% end %>
+    </ol>
+  </nav>
+<% end %>

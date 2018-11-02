@@ -4,6 +4,7 @@ require "sass-rails"
 require "jquery-rails"
 require "bootstrap"
 require "active_link_to"
+require "croutons"
 
 module Strails
   class Engine < ::Rails::Engine
