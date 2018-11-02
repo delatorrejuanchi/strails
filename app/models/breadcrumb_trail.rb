@@ -8,10 +8,12 @@ class BreadcrumbTrail < Croutons::BreadcrumbTrail
   end
 
   def strails_backend_dashboard_index
-    breadcrumb("Dashboard", backend_root_path)
+    strails_backend
+    breadcrumb("Dashboard", backend_dashboard_path)
   end
 
   def strails_backend_products_index
+    strails_backend
     breadcrumb("Products", backend_products_path)
   end
 
@@ -26,6 +28,7 @@ class BreadcrumbTrail < Croutons::BreadcrumbTrail
   end
 
   def strails_backend_option_types_index
+    strails_backend
     breadcrumb("Option Types", backend_option_types_path)
   end
 
