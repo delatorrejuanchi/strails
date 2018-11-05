@@ -9,5 +9,5 @@ test/dummy/yarn-error.log
 test/dummy/storage/
 test/dummy/tmp/
 Gemfile.lock
-/byebug_history
+**/.byebug_history
 coverage/
