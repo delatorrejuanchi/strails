@@ -1,0 +1,15 @@
+<div class="nested-fields">
+  <div class="form-group">
+    <div class="row">
+      <div class="col">
+        <%= f.text_field :name, class: "form-control", autocomplete: "off", placeholder: "Name" %>
+      </div>
+      <div class="col">
+        <%= f.text_field :presentation, class: "form-control", autocomplete: "off", placeholder: "Presentation" %>
+      </div>
+      <%= content_tag(:div, class: "remove-option-value") do %>
+        <%= link_to_remove_association material_icon("delete"), f, class: "btn btn-danger" %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -2,7 +2,7 @@
 
 module Strails
   class OptionValue < ApplicationRecord
-    belongs_to :option_type
+    belongs_to :option_type, inverse_of: :option_values
 
     validates :name, :presentation, :option_type, presence: true
 

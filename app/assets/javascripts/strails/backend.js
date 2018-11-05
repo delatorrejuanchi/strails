@@ -3,6 +3,7 @@
 //= require popper
 //= require bootstrap
 //= require if-b4-breakpoint
+//= require cocoon
 //= require activestorage
 //= require_tree ./backend
 

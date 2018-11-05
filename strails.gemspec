@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "active_link_to"
   s.add_dependency "bootstrap"
+  s.add_dependency "cocoon"
   s.add_dependency "croutons"
   s.add_dependency "jquery-rails"
   s.add_dependency "rails", "~> 5.2.1"

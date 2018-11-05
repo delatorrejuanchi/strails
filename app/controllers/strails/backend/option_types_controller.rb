@@ -54,7 +54,8 @@ module Strails
       end
 
       def option_type_params
-        params.require(:option_type).permit(:name, :presentation)
+        params.require(:option_type).permit(:name, :presentation,
+                                            option_values_attributes: %i[id name presentation _destroy])
       end
     end
   end

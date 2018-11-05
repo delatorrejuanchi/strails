@@ -6,6 +6,7 @@ require "bootstrap"
 require "active_link_to"
 require "croutons"
 require "rails-i18n"
+require "cocoon"
 
 module Strails
   class Engine < ::Rails::Engine

@@ -11,6 +11,23 @@
     <%= form.text_field :presentation, class: "form-control", autocomplete: "off" %>
   </div>
 
+  <hr class="divider">
+
+  <h5 class="mb-3">Option Values</h5>
+  <div id="option-values">
+    <%= form.fields_for :option_values do |option_values_form| %>
+      <%= render partial: "option_value_fields", locals: { f: option_values_form } %>
+    <% end %>
+
+    <div class="links">
+      <%= link_to_add_association(form, :option_values, class: "btn btn-outline-success") do %>
+       <%=  material_icon("add") %> Add Option Value
+      <% end %>
+    </div>
+  </div>
+
+  <hr class="divider">
+
   <div class="actions">
     <%= form.submit class: "btn btn-success" %>
 

@@ -1,0 +1,7 @@
+// scss-lint:disable PlaceholderInExtend
+
+.option-type-form {
+  .remove-option-value {
+    @extend .col-auto;
+  }
+}
