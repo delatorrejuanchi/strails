@@ -21,7 +21,7 @@
                 <td class="presentation"><%= option_value.presentation %></td>
                 <td class="actions actions-2">
                   <%= link_to material_icon("edit"), edit_backend_option_type_option_value_path(@option_type, option_value), class: "btn btn-sm btn-secondary" %>
-                  <%= link_to material_icon("delete"), [:backend, @option_type, option_value], method: :delete, class: "btn btn-sm btn-danger" %>
+                  <%= link_to material_icon("delete"), backend_option_type_option_value_path(@option_type, option_value), method: :delete, class: "btn btn-sm btn-danger" %>
                 </td>
               </tr>
             <% end %>

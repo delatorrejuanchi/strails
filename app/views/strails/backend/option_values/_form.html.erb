@@ -15,7 +15,7 @@
     <%= form.submit class: "btn btn-success" %>
 
     <% if option_value.persisted? %>
-      <%= link_to([:backend, option_type, option_value], method: :delete, class: "btn btn-outline-danger ml-3") do %>
+      <%= link_to(backend_option_type_option_value_path(option_type, option_value), method: :delete, class: "btn btn-outline-danger ml-3") do %>
         <%= material_icon "delete" %> Destroy
       <% end %>
     <% end %>

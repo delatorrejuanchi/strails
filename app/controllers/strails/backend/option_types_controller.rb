@@ -7,48 +7,44 @@ module Strails
     class OptionTypesController < BackendController
       before_action :set_option_type, only: %i[show edit update destroy]
 
-      # GET /backend/option_types
       def index
         @option_types = OptionType.all
       end
 
-      # GET /backend/option_types/1
       def show
         redirect_to edit_backend_option_type_path(@option_type)
       end
 
-      # GET /backend/option_types/new
       def new
         @option_type = OptionType.new
       end
 
-      # GET /backend/option_types/1/edit
       def edit; end
 
-      # POST /backend/option_types
       def create
         @option_type = OptionType.new(option_type_params)
 
         if @option_type.save
-          redirect_to [:backend, @option_type], notice: "Option Type was successfully created."
+          redirect_to backend_option_type_path(@option_type), notice: "Option Type was successfully created."
         else
           render :new
         end
       end
 
-      # PATCH/PUT /backend/option_types/1
       def update
         if @option_type.update(option_type_params)
-          redirect_to [:backend, @option_type], notice: "Option Type was successfully updated."
+          redirect_to backend_option_type_path(@option_type), notice: "Option Type was successfully updated."
         else
           render :edit
         end
       end
 
-      # DELETE /backend/option_types/1
       def destroy
-        @option_type.destroy
-        redirect_to backend_option_types_url, notice: "Option Type was successfully destroyed."
+        if @option_type.destroy
+          redirect_to backend_option_types_path, notice: "Option Type was successfully destroyed."
+        else
+          redirect_to backend_option_type_path(@option_type), error: "There was an error destroying this Option Type."
+        end
       end
 
       private
