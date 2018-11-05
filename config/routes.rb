@@ -8,7 +8,7 @@ Strails::Engine.routes.draw do
       resources :option_values
     end
 
-    root to: "dashboard#index"
+    root to: redirect("admin/dashboard")
   end
 
   scope module: :frontend do

@@ -1,6 +1,6 @@
 <div class="sidebar">
   <div class="sidebar-content">
-    <%= active_link_to(backend_dashboard_path, active: :exact) do %>
+    <%= active_link_to(backend_dashboard_path, active: :inclusive) do %>
       <%= material_icon "dashboard" %> Dashboard
     <% end %>
     <%= active_link_to(backend_products_path, active: :inclusive) do %>
