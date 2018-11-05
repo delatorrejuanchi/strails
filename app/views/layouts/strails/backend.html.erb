@@ -25,7 +25,19 @@
       <div class="content">
         <%= flash_messages %>
         <%= breadcrumbs %>
-        <%= yield %>
+
+        <div class="row">
+          <% if content_for? :content_navigation %>
+            <div class="content-navigation">
+              <div class="list-group">
+                <%= yield :content_navigation %>
+              </div>
+            </div>
+          <% end %>
+          <div class="content-inner">
+            <%= yield %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

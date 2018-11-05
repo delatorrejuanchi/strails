@@ -14,6 +14,10 @@
 
   .sidebar-content {
     flex: 1;
+
+    a {
+      @extend .sidebar-item;
+    }
   }
 
   .sidebar-item {

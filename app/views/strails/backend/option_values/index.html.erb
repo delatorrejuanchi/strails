@@ -1,0 +1,35 @@
+<div class="option-values">
+  <div class="card">
+    <div class="card-header">
+      <h3>Option Values for <%= @option_type.pretty_name %></h3>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th class="name">Name</th>
+              <th class="presentation">Presentation</th>
+              <th class="actions actions-2">Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @option_values.each do |option_value| %>
+              <tr>
+                <td class="name"><%= option_value.name %></td>
+                <td class="presentation"><%= option_value.presentation %></td>
+                <td class="actions actions-2">
+                  <%= link_to material_icon("edit"), edit_backend_option_type_option_value_path(@option_type, option_value), class: "btn btn-sm btn-secondary" %>
+                  <%= link_to material_icon("delete"), [:backend, @option_type, option_value], method: :delete, class: "btn btn-sm btn-danger" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <%= link_to "New Option Value", new_backend_option_type_option_value_path(@option_type), class: "btn btn-success" %>
+    </div>
+  </div>
+</div>

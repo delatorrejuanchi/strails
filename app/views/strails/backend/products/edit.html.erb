@@ -1,13 +1,16 @@
-<div class="row">
-  <%= render partial: "strails/backend/product_navigation", locals: { product: @product } %>
-  <div class="product">
-    <div class="card">
-      <div class="card-header">
-        <h3><%= @product.name %></h3>
-      </div>
-      <div class="card-body">
-        <%= render 'form', product: @product %>
-      </div>
+<div class="product">
+  <div class="card">
+    <div class="card-header">
+      <h3><%= @product.name %></h3>
+    </div>
+    <div class="card-body">
+      <%= render 'form', product: @product %>
     </div>
   </div>
 </div>
+
+<%= content_for :content_navigation do %>
+  <%= active_link_to(edit_backend_product_path(@product), active: :exact) do %>
+    <i class="material-icons">edit</i> Details
+  <% end %>
+<% end %>

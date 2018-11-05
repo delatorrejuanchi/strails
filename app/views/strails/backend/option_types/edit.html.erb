@@ -8,3 +8,9 @@
     </div>
   </div>
 </div>
+
+<%= content_for :content_navigation do %>
+  <%= active_link_to(backend_option_type_option_values_path(@option_type), active: :inclusive) do %>
+    <%= material_icon "settings" %> Option Values
+  <% end %>
+<% end %>
