@@ -25,7 +25,8 @@ module Strails
         @product = Product.new(product_params)
 
         if @product.save
-          redirect_to backend_product_path(@product), notice: "Product was successfully created."
+          redirect_to backend_product_path(@product),
+                      notice: t("successfully_created", model_name: translated_model_name("product"))
         else
           render :new
         end
@@ -33,7 +34,8 @@ module Strails
 
       def update
         if @product.update(product_params)
-          redirect_to backend_product_path(@product), notice: "Product was successfully updated."
+          redirect_to backend_product_path(@product),
+                      notice: t("successfully_updated", model_name: translated_model_name("product"))
         else
           render :edit
         end
@@ -41,9 +43,11 @@ module Strails
 
       def destroy
         if @product.destroy
-          redirect_to backend_products_path, notice: "Product was successfully destroyed."
+          redirect_to backend_products_path,
+                      notice: t("successfully_destroyed", model_name: translated_model_name("product"))
         else
-          redirect_to backend_product_path(@product), error: "There was an error destroying this product."
+          redirect_to backend_product_path(@product),
+                      error: t("errors.could_not_destroy", model_name: translated_model_name("product"))
         end
       end
 

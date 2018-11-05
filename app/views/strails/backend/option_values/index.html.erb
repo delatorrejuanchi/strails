@@ -1,16 +1,16 @@
 <div class="option-values">
   <div class="card">
     <div class="card-header">
-      <h3>Option Values for <%= @option_type.pretty_name %></h3>
+      <h3><%= t("option_values_for") %> <%= @option_type.pretty_name %></h3>
     </div>
     <div class="card-body">
       <div class="table-responsive">
         <table class="table table-bordered table-hover">
           <thead>
             <tr>
-              <th class="name">Name</th>
-              <th class="presentation">Presentation</th>
-              <th class="actions actions-2">Actions</th>
+              <th class="name"><%= translated_model_attribute("option_value", "name") %></th>
+              <th class="presentation"><%= translated_model_attribute("option_value", "presentation") %></th>
+              <th class="actions actions-2"><%= t("actions") %></th>
             </tr>
           </thead>
 
@@ -29,7 +29,7 @@
         </table>
       </div>
 
-      <%= link_to "New Option Value", new_backend_option_type_option_value_path(@option_type), class: "btn btn-success" %>
+      <%= link_to t("new_option_value"), new_backend_option_type_option_value_path(@option_type), class: "btn btn-success" %>
     </div>
   </div>
 </div>

@@ -1,16 +1,16 @@
 <div class="sidebar">
   <div class="sidebar-content">
     <%= active_link_to(backend_dashboard_path, active: :inclusive) do %>
-      <%= material_icon "dashboard" %> Dashboard
+      <%= material_icon "dashboard" %> <%= t("dashboard") %>
     <% end %>
     <%= active_link_to(backend_products_path, active: :inclusive) do %>
-      <%= material_icon "local_mall" %> Products
+      <%= material_icon "local_mall" %> <%= translated_model_name("product", plural: true) %>
     <% end %>
     <%= active_link_to(backend_option_types_path, active: :inclusive) do %>
-      <%= material_icon "settings" %> Option Types
+      <%= material_icon "settings" %> <%= translated_model_name("option_type", plural: true) %>
     <% end %>
   </div>
-  <div class="sidebar-footer">Strails version: <%= Strails::VERSION %></div>
+  <div class="sidebar-footer"><%= t("strails_version", version: Strails::VERSION) %></div>
 </div>
 
 <div class="overlay"></div>

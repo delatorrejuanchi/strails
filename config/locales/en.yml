@@ -1,9 +1,15 @@
 en:
   activerecord:
     models:
-      strails/product: Product
-      strails/option_type: Option Type
-      strails/option_value: Option Value
+      strails/product:
+        one: Product
+        other: Products
+      strails/option_type:
+        one: Option Type
+        other: Option Types
+      strails/option_value:
+        one: Option Type
+        other: Option Types
     attributes:
       strails/product:
         name: Name
@@ -11,7 +17,31 @@ en:
       strails/option_type:
         name: Name
         presentation: Presentation
+        option_values: Option Values
       strails/option_value:
         name: Name
         presentation: Presentation
 
+  backend: Backend
+  dashboard: Dashboard
+
+  new_product: New Product
+  new_option_type: New Option Type
+  new_option_value: New Option Value
+  option_values_for: Option Values for
+
+  details: Details
+  actions: Actions
+  cancel: Cancel
+  destroy: Destroy
+
+  strails_version: "Strails version: %{version}"
+
+  successfully_created: "%{model_name} was successfully created."
+  successfully_updated: "%{model_name} was successfully updated."
+  successfully_destroyed: "%{model_name} was successfully destroyed."
+  errors:
+    could_not_destroyed: "There was an error destroying this %{model_name}."
+    prohibited_from_being_saved_explanation:
+      one: "1 error prohibited this %{model_name} from being saved:"
+      other: "%{count} errors prohibited this %{model_name} from being saved:"

@@ -27,7 +27,7 @@ module Strails
 
         if @option_value.save
           redirect_to backend_option_type_option_values_path(@option_type),
-                      notice: "Option value was successfully created."
+                      notice: t("successfully_created", model_name: translated_model_name("option_value"))
         else
           render :new
         end
@@ -36,7 +36,7 @@ module Strails
       def update
         if @option_value.update(option_value_params)
           redirect_to backend_option_type_option_value_path(@option_type, @option_value),
-                      notice: "Option value was successfully updated."
+                      notice: t("successfully_updated", model_name: translated_model_name("option_value"))
         else
           render :edit
         end
@@ -45,10 +45,10 @@ module Strails
       def destroy
         if @option_value.destroy
           redirect_to backend_option_type_option_values_path(@option_type),
-                      notice: "Option value was successfully destroyed."
+                      notice: t("successfully_destroyed", model_name: translated_model_name("option_value"))
         else
           redirect_to backend_option_type_option_value_path(@option_type, @option_value),
-                      error: "There was an error destroying this Option Value."
+                      error: t("errors.could_not_destroy", model_name: translated_model_name("option_value"))
         end
       end
 

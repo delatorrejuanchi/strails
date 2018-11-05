@@ -2,24 +2,25 @@
 
 class BreadcrumbTrail < Croutons::BreadcrumbTrail
   include Strails::Engine.routes.url_helpers
+  include Strails::TranslationsHelper
 
   def strails_backend
-    breadcrumb("Backend")
+    breadcrumb(t("backend"))
   end
 
   def strails_backend_dashboard_index
     strails_backend
-    breadcrumb("Dashboard", backend_dashboard_path)
+    breadcrumb(t("dashboard"), backend_dashboard_path)
   end
 
   def strails_backend_products_index
     strails_backend
-    breadcrumb("Products", backend_products_path)
+    breadcrumb(translated_model_name("product", plural: true), backend_products_path)
   end
 
   def strails_backend_products_new
     strails_backend_products_index
-    breadcrumb("New Product")
+    breadcrumb(t("new_product"))
   end
 
   def strails_backend_products_edit
@@ -29,12 +30,12 @@ class BreadcrumbTrail < Croutons::BreadcrumbTrail
 
   def strails_backend_option_types_index
     strails_backend
-    breadcrumb("Option Types", backend_option_types_path)
+    breadcrumb(translated_model_name("option_type", plural: true), backend_option_types_path)
   end
 
   def strails_backend_option_types_new
     strails_backend_option_types_index
-    breadcrumb("New Option Type")
+    breadcrumb(t("new_option_type"))
   end
 
   def strails_backend_option_types_edit
@@ -44,12 +45,13 @@ class BreadcrumbTrail < Croutons::BreadcrumbTrail
 
   def strails_backend_option_values_index
     strails_backend_option_types_edit
-    breadcrumb("Option Values", backend_option_type_option_values_path(objects[:option_type]))
+    breadcrumb(translated_model_name("option_value", plural: true),
+               backend_option_type_option_values_path(objects[:option_type]))
   end
 
   def strails_backend_option_values_new
     strails_backend_option_values_index
-    breadcrumb("New Option Value")
+    breadcrumb(t("new_option_value"))
   end
 
   def strails_backend_option_values_edit

@@ -1,16 +1,16 @@
 <div class="products">
   <div class="card">
     <div class="card-header">
-      <h3>Products</h3>
+      <h3><%= translated_model_name("product", plural: true) %></h3>
     </div>
     <div class="card-body">
       <div class="table-responsive">
         <table class="table table-bordered table-hover">
           <thead>
             <tr>
-              <th class="name">Name</th>
-              <th class="description">Description</th>
-              <th class="actions actions-2">Actions</th>
+              <th class="name"><%= translated_model_attribute("product", "name") %></th>
+              <th class="description"><%= translated_model_attribute("product", "description") %></th>
+              <th class="actions actions-2"><%= t("actions") %></th>
             </tr>
           </thead>
 
@@ -29,7 +29,7 @@
         </table>
       </div>
 
-      <%= link_to "New Product", new_backend_product_path, class: "btn btn-success" %>
+      <%= link_to t("new_product"), new_backend_product_path, class: "btn btn-success" %>
     </div>
   </div>
 </div>

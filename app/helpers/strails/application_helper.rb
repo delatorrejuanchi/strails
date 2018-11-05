@@ -2,6 +2,8 @@
 
 module Strails
   module ApplicationHelper
+    include TranslationsHelper
+
     def flash_messages
       return if flash.empty?
 
@@ -22,11 +24,12 @@ module Strails
       return if record.errors.empty?
 
       error_count = record.errors.count
-      record_name = record.class.name
+      model_name = record.class.name
       content_tag(:div, class: "error-list") do
         capture do
-          concat(content_tag(:strong,
-                             "#{pluralize(error_count, 'error')} prohibited this #{record_name} from being saved:"))
+          concat(content_tag(:strong, t("errors.prohibited_from_being_saved_explanation",
+                                        count: error_count,
+                                        model_name: model_name)))
           concat(content_tag(:ul, error_list(record.errors)))
         end
       end

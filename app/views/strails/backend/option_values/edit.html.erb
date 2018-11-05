@@ -1,7 +1,7 @@
 <div class="option-value">
   <div class="card">
     <div class="card-header">
-      <h3>Option Value: <%= @option_value.pretty_name %></h3>
+      <h3><%= translated_model_name("option_value") %>: <%= @option_value.pretty_name %></h3>
     </div>
     <div class="card-body">
       <%= render 'form', option_value: @option_value, option_type: @option_type %>

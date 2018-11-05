@@ -20,7 +20,7 @@ module Strails
     end
 
     initializer "strails.i18n.available_locales" do |app|
-      app.config.i18n.available_locales = [:en]
+      app.config.i18n.available_locales = %i[en es]
     end
   end
 end

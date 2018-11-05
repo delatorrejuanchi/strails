@@ -25,7 +25,8 @@ module Strails
         @option_type = OptionType.new(option_type_params)
 
         if @option_type.save
-          redirect_to backend_option_type_path(@option_type), notice: "Option Type was successfully created."
+          redirect_to backend_option_type_path(@option_type),
+                      notice: t("successfully_created", model_name: translated_model_name("option_type"))
         else
           render :new
         end
@@ -33,7 +34,8 @@ module Strails
 
       def update
         if @option_type.update(option_type_params)
-          redirect_to backend_option_type_path(@option_type), notice: "Option Type was successfully updated."
+          redirect_to backend_option_type_path(@option_type),
+                      notice: t("successfully_updated", model_name: translated_model_name("option_type"))
         else
           render :edit
         end
@@ -41,9 +43,11 @@ module Strails
 
       def destroy
         if @option_type.destroy
-          redirect_to backend_option_types_path, notice: "Option Type was successfully destroyed."
+          redirect_to backend_option_types_path,
+                      notice: t("successfully_destroyed", model_name: translated_model_name("option_type"))
         else
-          redirect_to backend_option_type_path(@option_type), error: "There was an error destroying this Option Type."
+          redirect_to backend_option_type_path(@option_type),
+                      error: t("errors.could_not_destroy", model_name: translated_model_name("option_type"))
         end
       end
 

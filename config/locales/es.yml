@@ -1,0 +1,47 @@
+es:
+  activerecord:
+    models:
+      strails/product:
+        one: Producto
+        other: Productos
+      strails/option_type:
+        one: Tipo de Opción
+        other: Tipos de Opción
+      strails/option_value:
+        one: Valor de Opción
+        other: Valores de Opción
+    attributes:
+      strails/product:
+        name: Nombre
+        description: Descripción
+      strails/option_type:
+        name: Nombre
+        presentation: Presentación
+        option_values: Valores de Opción
+      strails/option_value:
+        name: Nombre
+        presentation: Presentación
+
+  backend: Backend
+  dashboard: Tablero
+
+  new_product: Nuevo Producto
+  new_option_type: Nuevo Tipo de Opción
+  new_option_value: Nuevo Valor de Opción
+  option_values_for: Valores de Opción para
+
+  details: Detalles
+  actions: Acciones
+  cancel: Cancelar
+  destroy: Eliminar
+
+  strails_version: "Versión de Strails: %{version}"
+
+  successfully_created: "%{model_name} creado exitosamente."
+  successfully_updated: "%{model_name} actualizado exitosamente."
+  successfully_destroyed: "%{model_name} eliminado exitosamente."
+  errors:
+    could_not_destroyed: "Error intentando eliminar %{model_name}."
+    prohibited_from_being_saved_explanation:
+      one: "1 error ha impedido guardar este %{model_name}:"
+      other: "%{count} errores han impedido guardar este %{model_name}:"

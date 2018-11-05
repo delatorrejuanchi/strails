@@ -1,17 +1,17 @@
 <div class="option-types">
   <div class="card">
     <div class="card-header">
-      <h3>Option Types</h3>
+      <h3><%= translated_model_name("option_type", plural: true) %></h3>
     </div>
     <div class="card-body">
       <div class="table-responsive">
         <table class="table table-bordered table-hover">
           <thead>
             <tr>
-              <th class="name">Name</th>
-              <th class="presentation">Presentation</th>
-              <th class="option-values">Option Values</th>
-              <th class="actions actions-2">Actions</th>
+              <th class="name"><%= translated_model_attribute("option_type", "name") %></th>
+              <th class="presentation"><%= translated_model_attribute("option_type", "presentation") %></th>
+              <th class="option-values"><%= translated_model_attribute("option_type", "option_values") %></th>
+              <th class="actions actions-2"><%= t("actions") %></th>
             </tr>
           </thead>
 
@@ -31,7 +31,7 @@
         </table>
       </div>
 
-      <%= link_to "New Option Type", new_backend_option_type_path, class: "btn btn-success" %>
+      <%= link_to t("new_option_type"), new_backend_option_type_path, class: "btn btn-success" %>
     </div>
   </div>
 </div>
