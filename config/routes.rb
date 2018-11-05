@@ -13,6 +13,7 @@ Strails::Engine.routes.draw do
   end
 
   scope module: :frontend do
+    post "/change_locale", to: "locale#change_locale", as: :change_locale
     root to: "home#index"
   end
 end
