@@ -30,6 +30,9 @@ es:
   new_option_value: Nuevo Valor de Opción
   option_values_for: Valores de Opción para
 
+  choose_locale: Elegir idioma
+  change_locale: Cambiar idioma
+
   details: Detalles
   actions: Acciones
   cancel: Cancelar
@@ -45,3 +48,6 @@ es:
     prohibited_from_being_saved_explanation:
       one: "1 error ha impedido guardar este %{model_name}:"
       other: "%{count} errores han impedido guardar este %{model_name}:"
+
+  es: Español
+  en: Inglés

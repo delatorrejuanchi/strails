@@ -1,0 +1,18 @@
+<div class="modal fade" id="change-locale-modal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t("choose_locale") %></h5>
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_tag(controller: "locale", action: "change_locale") do %>
+          <%= select_tag :locale, options_for_select(I18n.available_locales.map { |locale| [t(locale), locale] }, I18n.locale),
+                         class: "custom-select", onchange: "this.form.submit()" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

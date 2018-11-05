@@ -14,6 +14,9 @@
       <%= material_icon "menu" %>
     </a>
     <%= link_to "Strails", backend_root_path, class: "navbar-brand" %>
+    <a href="#change-locale-modal" class="change-locale" data-toggle="modal" data-target="#change-locale-modal">
+      <%= material_icon("language") %>
+    </a>
   </nav>
 
   <div class="container-fluid">
@@ -42,5 +45,6 @@
     </div>
   </div>
 
+  <%= render partial: "strails/backend/change_locale_modal" %>
 </body>
 </html>

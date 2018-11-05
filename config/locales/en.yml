@@ -30,6 +30,9 @@ en:
   new_option_value: New Option Value
   option_values_for: Option Values for
 
+  choose_locale: Choose language
+  change_locale: Change language
+
   details: Details
   actions: Actions
   cancel: Cancel
@@ -45,3 +48,6 @@ en:
     prohibited_from_being_saved_explanation:
       one: "1 error prohibited this %{model_name} from being saved:"
       other: "%{count} errors prohibited this %{model_name} from being saved:"
+
+  es: Spanish
+  en: English

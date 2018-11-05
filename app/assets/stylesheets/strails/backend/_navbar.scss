@@ -15,4 +15,8 @@
   .navbar-brand {
     @extend .mr-auto;
   }
+
+  .change-locale {
+    @extend .text-light;
+  }
 }
