@@ -3,11 +3,15 @@ en:
     models:
       strails/product: Product
       strails/option_type: Option Type
+      strails/option_value: Option Value
     attributes:
       strails/product:
         name: Name
         description: Description
       strails/option_type:
+        name: Name
+        presentation: Presentation
+      strails/option_value:
         name: Name
         presentation: Presentation
 
