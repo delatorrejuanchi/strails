@@ -26,13 +26,13 @@
   <div class="actions">
     <%= form.submit class: "btn btn-success" %>
 
-    <% if product.persisted? %>
-      <%= link_to(backend_product_path(product), method: :delete, class: "btn btn-outline-danger ml-3") do %>
+    <% if variant.persisted? %>
+      <%= link_to(backend_product_variant_path(product, variant), method: :delete, class: "btn btn-outline-danger ml-3") do %>
         <%= material_icon "delete" %> <%= t("destroy") %>
       <% end %>
     <% end %>
 
-    <%= link_to(backend_products_path, class: "btn btn-outline-secondary ml-3") do %>
+    <%= link_to(backend_product_variants_path(product), class: "btn btn-outline-secondary ml-3") do %>
       <%= material_icon "clear" %> <%= t("cancel") %>
     <% end %>
   </div>
