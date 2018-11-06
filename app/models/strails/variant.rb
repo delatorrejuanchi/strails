@@ -16,8 +16,8 @@ module Strails
     validates :is_master, inclusion: { in: [true, false] }
     validate :only_one_option_value_per_option_type
 
-    after_initialize :set_default_price
     before_save :set_default_sku
+    before_save :set_default_price
     before_destroy :dont_unless_destroyed_by_product, if: :is_master, prepend: true
 
     delegate :name, :description, to: :product
@@ -35,10 +35,10 @@ module Strails
     end
 
     def price
-      self.price = 0 if super.nil?
-
       if is_master || product.nil?
         super
+      elsif super.nil?
+        product.price
       else
         product.price + super
       end

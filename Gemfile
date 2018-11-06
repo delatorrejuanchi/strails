@@ -13,8 +13,6 @@ group :development, :test do
   gem "simplecov-console"
 
   gem "rubocop"
-
-  gem "i18n-debug"
 end
 
 group :development do
