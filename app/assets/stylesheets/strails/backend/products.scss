@@ -1,13 +1,13 @@
 // scss-lint:disable PlaceholderInExtend
 
-.product {
-  .name {
-    @extend .h3;
-    @extend .mb-0;
-  }
+.product-form {
+  .option-values-form {
+    @extend .form-group;
 
-  .actions {
-    @extend .h5;
-    @extend .mb-0;
+    .card-body {
+      @extend .pb-0;
+      @extend .pt-3;
+      @extend .px-5;
+    }
   }
 }

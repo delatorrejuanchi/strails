@@ -8,8 +8,10 @@
         <table class="table table-bordered table-hover">
           <thead>
             <tr>
+              <th class="sku"><%= translated_model_attribute("variant", "sku") %></th>
               <th class="name"><%= translated_model_attribute("product", "name") %></th>
               <th class="description"><%= translated_model_attribute("product", "description") %></th>
+              <th class="price"><%= translated_model_attribute("variant", "price") %></th>
               <th class="actions actions-2"><%= t("actions") %></th>
             </tr>
           </thead>
@@ -17,8 +19,10 @@
           <tbody>
             <% @products.each do |product| %>
               <tr>
+                <td class="sku"><%= product.sku %></td>
                 <td class="name"><%= product.name %></td>
                 <td class="description"><%= product.description %></td>
+                <td class="price"><%= number_to_currency(product.price) %></td>
                 <td class="actions actions-2">
                   <%= link_to material_icon("edit"), edit_backend_product_path(product), class: "btn btn-sm btn-secondary" %>
                   <%= link_to material_icon("delete"), backend_product_path(product), method: :delete, class: "btn btn-sm btn-danger" %>

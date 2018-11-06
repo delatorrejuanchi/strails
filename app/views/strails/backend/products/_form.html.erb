@@ -1,15 +1,44 @@
 <%= form_with(model: [:backend, product], local: true, class: "product-form") do |form| %>
   <%= error_messages_for(product) %>
 
-  <div class="form-group">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "form-control", autocomplete: "off" %>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: "form-control", autocomplete: "off" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :description %>
+        <%= form.text_area :description, class: "form-control", size: "0x10" %>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <%= form.fields_for :master do |master_form| %>
+        <div class="form-group">
+          <%= master_form.label :sku %>
+          <%= master_form.text_field :sku, class: "form-control", autocomplete: "off" %>
+        </div>
+
+        <div class="form-group">
+          <%= master_form.label :price %>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">$</span>
+            </div>
+            <%= master_form.number_field :price, step: "0.01", class: "form-control", autocomplete: "off" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= form.label :description %>
-    <%= form.text_area :description, class: "form-control", size: "0x10" %>
-  </div>
+  <% if @product.new_record? %>
+    <div class="option-values-form">
+      <%= render "option_values_form", form: form, grouped_option_values: @grouped_option_values %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit class: "btn btn-success" %>
@@ -25,3 +54,25 @@
     <% end %>
   </div>
 <% end %>
+
+<script>
+  function parameterize(str) {
+    return str.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'')
+  }
+
+  $(document).ready(function() {
+    let sku_field = $("#product_master_attributes_sku")
+    let name_field = $("#product_name")
+
+    name_field.bind('input', function() {
+
+      if (!sku_field.attr('data-custom')) {
+        sku_field.val(parameterize(name_field.val()))
+      }
+    })
+
+    sku_field.bind('input', function() {
+      sku_field.attr('data-custom', sku_field.val() != "")
+    })
+  })
+</script>

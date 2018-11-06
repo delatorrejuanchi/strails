@@ -22,13 +22,13 @@ module Strails
     end
 
     test "does not raise errors when created" do
-      option_type = OptionType.create!(name: "size", presentation: "Size")
+      option_type = OptionType.create!(new_params)
 
       assert_not_nil option_type
     end
 
     test "destroys option_values when destroyed" do
-      id = @option_type.id
+      id = @option_type
       @option_type.destroy
 
       assert_equal 0, OptionValue.where(option_type_id: id).count

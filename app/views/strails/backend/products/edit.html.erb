@@ -11,6 +11,9 @@
 
 <%= content_for :content_navigation do %>
   <%= active_link_to(edit_backend_product_path(@product), active: :exact) do %>
-    <i class="material-icons">edit</i> <%= t("details") %>
+    <%= material_icon "edit" %> <%= t("details") %>
+  <% end %>
+  <%= active_link_to(backend_product_variants_path(@product), active: :inclusive) do %>
+    <%= material_icon "view_list" %> <%= translated_model_name("variant", plural: true) %>
   <% end %>
 <% end %>

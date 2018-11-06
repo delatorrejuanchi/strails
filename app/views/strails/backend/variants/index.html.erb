@@ -1,0 +1,56 @@
+<div class="variants">
+  <div class="card">
+    <div class="card-header">
+      <h3><%= translated_model_name("variant", plural: true) %></h3>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th class="sku"><%= translated_model_attribute("variant", "sku") %></th>
+              <% @product.option_types.each do |option_type| %>
+                <th class="option-type"><%= option_type.pretty_name %></th>
+              <% end %>
+              <th class="price"><%= translated_model_attribute("variant", "price") %></th>
+              <th class="actions actions-2"><%= t("actions") %></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @variants.each do |variant| %>
+              <tr>
+                <td class="sku"><%= variant.sku %></td>
+                <% @product.option_types.each do |option_type| %>
+                  <% if variant.option_types.include? option_type %>
+                    <td class="option-value"><%= variant.option_value_from_option_type(option_type).pretty_name %></td>
+                  <% else %>
+                    <td class="option-value-missing">-</td>
+                  <% end %>
+                <% end %>
+                <td class="price"><%= number_to_currency(variant.price) %></td>
+                <td class="actions actions-2">
+                  <%= link_to material_icon("edit"), edit_backend_product_variant_path(@product, variant), class: "btn btn-sm btn-secondary" %>
+                  <%= link_to material_icon("delete"), backend_product_variant_path(@product, variant), method: :delete, class: "btn btn-sm btn-danger" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <%= link_to(new_backend_product_variant_path(@product), class: "btn btn-success") do %>
+        <%= material_icon("add") %> <%= t("new_variant") %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= content_for :content_navigation do %>
+  <%= active_link_to(edit_backend_product_path(@product), active: :exact) do %>
+    <%= material_icon "edit" %> <%= t("details") %>
+  <% end %>
+  <%= active_link_to(backend_product_variants_path(@product), active: :inclusive) do %>
+    <%= material_icon "view_list" %> <%= translated_model_name("variant", plural: true) %>
+  <% end %>
+<% end %>

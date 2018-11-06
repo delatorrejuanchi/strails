@@ -1,4 +1,12 @@
 es:
+  number:
+    currency:
+        format:
+          unit: '$'
+          delimiter: ','
+          separator: '.'
+          precision: 2
+          format: '%u%n'
   activerecord:
     models:
       strails/product:
@@ -10,6 +18,9 @@ es:
       strails/option_value:
         one: Valor de Opción
         other: Valores de Opción
+      strails/variant:
+        one: Variante
+        other: Variantes
     attributes:
       strails/product:
         name: Nombre
@@ -21,6 +32,11 @@ es:
       strails/option_value:
         name: Nombre
         presentation: Presentación
+      strails/variant:
+        sku: SKU
+        price: Precio
+        is_master: Es Variante Maestra
+        option_values: Valores de Opción
 
   backend: Backend
   dashboard: Tablero
@@ -28,6 +44,8 @@ es:
   new_product: Nuevo Producto
   new_option_type: Nuevo Tipo de Opción
   new_option_value: Nuevo Valor de Opción
+  new_variant: Nueva Variante
+
   option_values_for: Valores de Opción para
 
   choose_locale: Elegir idioma
@@ -42,11 +60,18 @@ es:
   successfully_created: "%{model_name} creado exitosamente."
   successfully_updated: "%{model_name} actualizado exitosamente."
   successfully_destroyed: "%{model_name} eliminado exitosamente."
+
+  alerts:
+    no_records_yet: "Todavía no existen %{plural_model_name}."
+
   errors:
     could_not_destroyed: "Error intentando eliminar %{model_name}."
     prohibited_from_being_saved_explanation:
       one: "1 error ha impedido guardar este %{model_name}:"
       other: "%{count} errores han impedido guardar este %{model_name}:"
+    cant_destroy_master_variant: "No es posible eliminar la Variante Maestra de un Producto"
+    cant_set_more_than_one_option_value_of_the_same_option_type: "No es posible elegir más de un Valor de Opción para el mismo Tipo de Opción"
+
 
   es: Español
   en: Inglés

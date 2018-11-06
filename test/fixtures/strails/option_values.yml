@@ -1,6 +1,26 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 default:
-  name: default
-  presentation: default
+  name: ov1
+  presentation: Option Value 1
   option_type: default
+
+type_one_value_one:
+  name: ov1
+  presentation: Option Value 1
+  option_type: one
+
+type_one_value_two:
+  name: ov2
+  presentation: Option Value 2
+  option_type: one
+
+type_two_value_three:
+  name: ov3
+  presentation: Option Value 3
+  option_type: two
+
+type_two_value_four:
+  name: ov4
+  presentation: Option Value 4
+  option_type: two

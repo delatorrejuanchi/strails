@@ -10,6 +10,9 @@ en:
       strails/option_value:
         one: Option Type
         other: Option Types
+      strails/variant:
+        one: Variant
+        other: Variants
     attributes:
       strails/product:
         name: Name
@@ -21,6 +24,11 @@ en:
       strails/option_value:
         name: Name
         presentation: Presentation
+      strails/variant:
+        sku: SKU
+        price: Price
+        is_master: Is Master
+        option_values: Option Values
 
   backend: Backend
   dashboard: Dashboard
@@ -28,6 +36,8 @@ en:
   new_product: New Product
   new_option_type: New Option Type
   new_option_value: New Option Value
+  new_variant: New Variant
+
   option_values_for: Option Values for
 
   choose_locale: Choose language
@@ -42,11 +52,17 @@ en:
   successfully_created: "%{model_name} was successfully created."
   successfully_updated: "%{model_name} was successfully updated."
   successfully_destroyed: "%{model_name} was successfully destroyed."
+
+  alerts:
+    no_records_yet: "There are no %{plural_model_name} yet. Create some!"
+
   errors:
     could_not_destroyed: "There was an error destroying this %{model_name}."
     prohibited_from_being_saved_explanation:
       one: "1 error prohibited this %{model_name} from being saved:"
       other: "%{count} errors prohibited this %{model_name} from being saved:"
+    cant_destroy_master_variant: "Can't destroy the Master Variant of a Product"
+    cant_set_more_than_one_option_value_of_the_same_option_type: "Can't set more than one option value of the same option type"
 
   es: Spanish
   en: English

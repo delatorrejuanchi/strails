@@ -2,7 +2,7 @@
 
 module Strails
   class OptionType < ApplicationRecord
-    has_many :option_values, inverse_of: :option_type, dependent: :destroy
+    has_many :option_values, class_name: "Strails::OptionValue", dependent: :destroy, inverse_of: :option_type
 
     validates :name, :presentation, presence: true
 

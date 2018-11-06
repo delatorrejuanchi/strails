@@ -39,5 +39,12 @@ module ActiveSupport
       assert missing_fields.blank?, "#{record.class} has errors on '#{missing_fields.join(', ')}'"
       assert extra_fields.blank?, "#{record.class} doesn't have errors on '#{extra_fields.join(', ')}'"
     end
+
+    def new_params(options = {})
+      fixture_name = self.class.name.gsub("::", "").chomp("Test").pluralize.underscore
+      default_record = send(fixture_name, "default")
+
+      default_record.attributes.except("id", "created_at", "updated_at").merge(options)
+    end
   end
 end

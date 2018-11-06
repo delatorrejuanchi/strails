@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_02_180317) do
+ActiveRecord::Schema.define(version: 2018_11_05_234428) do
 
   create_table "strails_option_types", force: :cascade do |t|
     t.string "name"
     t.string "presentation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "strails_option_value_variants", force: :cascade do |t|
+    t.integer "option_value_id"
+    t.integer "variant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["option_value_id"], name: "index_strails_option_value_variants_on_option_value_id"
+    t.index ["variant_id"], name: "index_strails_option_value_variants_on_variant_id"
   end
 
   create_table "strails_option_values", force: :cascade do |t|
@@ -33,6 +42,16 @@ ActiveRecord::Schema.define(version: 2018_11_02_180317) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "strails_variants", force: :cascade do |t|
+    t.string "sku"
+    t.decimal "price", precision: 10, scale: 2
+    t.boolean "is_master"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_strails_variants_on_product_id"
   end
 
 end

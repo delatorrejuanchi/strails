@@ -6,6 +6,7 @@ module Strails
   module Backend
     class ProductsController < BackendController
       before_action :set_product, only: %i[show edit update destroy]
+      before_action :set_grouped_option_values, only: %i[new create]
 
       def index
         @products = Product.all
@@ -23,6 +24,9 @@ module Strails
 
       def create
         @product = Product.new(product_params)
+
+        option_values = OptionValue.where(id: option_value_params[:option_value_ids])
+        @product.option_values = option_values unless option_values.empty?
 
         if @product.save
           redirect_to backend_product_path(@product),
@@ -57,8 +61,16 @@ module Strails
         @product = Product.find(params[:id])
       end
 
+      def set_grouped_option_values
+        @grouped_option_values = OptionValue.all.group_by(&:option_type)
+      end
+
       def product_params
-        params.require(:product).permit(:name, :description)
+        params.require(:product).permit(:name, :description, master_attributes: %i[id sku price])
+      end
+
+      def option_value_params
+        params.require(:product).permit(option_value_ids: [])
       end
     end
   end

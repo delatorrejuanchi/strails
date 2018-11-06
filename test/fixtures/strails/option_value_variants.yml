@@ -1,5 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 default:
-  name: Sample Name
-  description: Lorem ipsum dolor sit amet
+  option_value: default
+  variant: default

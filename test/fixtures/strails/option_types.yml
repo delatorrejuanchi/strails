@@ -1,5 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 default:
-  name: default
-  presentation: default
+  name: ot
+  presentation: Option Type
+
+one:
+  name: ot1
+  presentation: Option Type 1
+
+two:
+  name: ot2
+  presentation: Option Type 2

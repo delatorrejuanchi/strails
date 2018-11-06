@@ -25,7 +25,7 @@ class BreadcrumbTrail < Croutons::BreadcrumbTrail
 
   def strails_backend_products_edit
     strails_backend_products_index
-    breadcrumb(objects[:product].name, backend_products_path(objects[:product]))
+    breadcrumb(objects[:product].name, backend_product_path(objects[:product]))
   end
 
   def strails_backend_option_types_index
@@ -58,5 +58,20 @@ class BreadcrumbTrail < Croutons::BreadcrumbTrail
     strails_backend_option_values_index
     breadcrumb(objects[:option_value].pretty_name,
                backend_option_type_option_value_path(objects[:option_type], objects[:option_value]))
+  end
+
+  def strails_backend_variants_index
+    strails_backend_products_edit
+    breadcrumb(translated_model_name("variant", plural: true), backend_product_variants_path(objects[:product]))
+  end
+
+  def strails_backend_variants_new
+    strails_backend_variants_index
+    breadcrumb(t("new_variant"))
+  end
+
+  def strails_backend_variants_edit
+    strails_backend_variants_index
+    breadcrumb(objects[:variant].sku, backend_product_variant_path(objects[:product], objects[:variant]))
   end
 end

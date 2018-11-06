@@ -1,0 +1,14 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+default:
+  sku: sample-product-ov1
+  price: 9.99
+  is_master: false
+  product: default
+
+
+default_master:
+  sku: sample-product
+  price: 9.99
+  is_master: true
+  product: default
