@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Strails
   class Variant < ApplicationRecord
     attr_accessor :destroyed_by_product
