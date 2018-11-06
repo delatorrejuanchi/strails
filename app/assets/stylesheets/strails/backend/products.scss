@@ -1,13 +1,26 @@
 // scss-lint:disable PlaceholderInExtend
+// scss-lint:disable SelectorDepth
+// scss-lint:disable NestingDepth
 
-.product-form {
-  .option-values-form {
-    @extend .form-group;
+// products#index
+// .products {
+//   .sku { }
+//   .name { }
+//   .description { }
+//   .price { }
+// }
 
-    .card-body {
-      @extend .pb-0;
-      @extend .pt-3;
-      @extend .px-5;
+// products#new, products#edit
+.product {
+  form {
+    .option-values-form {
+      @extend .form-group;
+
+      .card-body {
+        @extend .pb-0;
+        @extend .pt-3;
+        @extend .px-5;
+      }
     }
   }
 }

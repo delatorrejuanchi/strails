@@ -1,4 +1,4 @@
-<%= form_with(model: [:backend, option_type, option_value], local: true, class: "option-value-form") do |form| %>
+<%= form_with(model: [:backend, option_type, option_value], local: true) do |form| %>
   <%= error_messages_for(option_value) %>
 
   <div class="form-group">
@@ -12,15 +12,15 @@
   </div>
 
   <div class="actions">
-    <%= form.submit class: "btn btn-success" %>
+    <%= form.submit class: "btn-submit" %>
 
     <% if option_value.persisted? %>
-      <%= link_to(backend_option_type_option_value_path(option_type, option_value), method: :delete, class: "btn btn-outline-danger ml-3") do %>
+      <%= link_to(backend_option_type_option_value_path(option_type, option_value), method: :delete, class: "btn-destroy ml-3") do %>
         <%= material_icon "delete" %> <%= t("destroy") %>
       <% end %>
     <% end %>
 
-    <%= link_to(backend_option_type_option_values_path, class: "btn btn-outline-secondary ml-3") do %>
+    <%= link_to(backend_option_type_option_values_path, class: "btn-cancel ml-3") do %>
       <%= material_icon "clear" %> <%= t("cancel") %>
     <% end %>
   </div>

@@ -13,7 +13,7 @@
                 <th class="option-type"><%= option_type.pretty_name %></th>
               <% end %>
               <th class="price"><%= translated_model_attribute("variant", "price") %></th>
-              <th class="extra-price"><%= t("extra_price") %></th>
+              <th class="extra-price"><%= translated_model_attribute("variant", "extra_price") %></th>
               <th class="actions actions-2"><%= t("actions") %></th>
             </tr>
           </thead>
@@ -32,8 +32,8 @@
                 <td class="price"><%= number_to_currency(variant.price) %></td>
                 <td class="extra-price"><%= display_variant_extra_price(variant) %></td>
                 <td class="actions actions-2">
-                  <%= link_to material_icon("edit"), edit_backend_product_variant_path(@product, variant), class: "btn btn-sm btn-secondary" %>
-                  <%= link_to material_icon("delete"), backend_product_variant_path(@product, variant), method: :delete, class: "btn btn-sm btn-danger" %>
+                  <%= link_to material_icon("edit"), edit_backend_product_variant_path(@product, variant), class: "btn-edit btn-sm" %>
+                  <%= link_to material_icon("delete"), backend_product_variant_path(@product, variant), method: :delete, class: "btn-destroy btn-sm" %>
                 </td>
               </tr>
             <% end %>
@@ -41,7 +41,7 @@
         </table>
       </div>
 
-      <%= link_to(new_backend_product_variant_path(@product), class: "btn btn-success") do %>
+      <%= link_to(new_backend_product_variant_path(@product), class: "btn-new") do %>
         <%= material_icon("add") %> <%= t("new_variant") %>
       <% end %>
     </div>

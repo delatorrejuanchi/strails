@@ -1,5 +1,19 @@
 // scss-lint:disable PlaceholderInExtend
 
-.option-value-missing {
-  @extend .text-center;
+// variants#index
+.variants {
+  // .sku { }
+  // .option-type { }
+  // .price { }
+  // .extra-price { }
+  // .option-value { }
+  .option-value-missing {
+    @extend .text-center;
+  }
 }
+
+// variants#new, variants#edit
+// .variant {
+//   form {
+//   }
+// }

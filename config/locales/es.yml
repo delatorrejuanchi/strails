@@ -37,6 +37,7 @@ es:
         price: Precio
         is_master: Es Variante Maestra
         option_values: Valores de Opción
+        extra_price: Precio Extra
 
   backend: Backend
   dashboard: Tablero
@@ -47,7 +48,6 @@ es:
   new_variant: Nueva Variante
 
   option_values_for: Valores de Opción para
-  extra_price: Precio extra
 
   choose_locale: Elegir idioma
 

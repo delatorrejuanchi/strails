@@ -1,7 +1,19 @@
 // scss-lint:disable PlaceholderInExtend
 
-.option-type-form {
-  .remove-option-value {
-    @extend .col-auto;
+// option_types#index
+// .option-types {
+//   table {
+//     .name { }
+//     .presentation { }
+//     .option-values { }
+//   }
+// }
+
+// option_types#new, option_types#edit
+.option-type {
+  form {
+    .remove-option-value {
+      @extend .col-auto;
+    }
   }
 }

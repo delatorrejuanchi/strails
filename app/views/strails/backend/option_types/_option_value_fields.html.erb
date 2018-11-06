@@ -8,7 +8,7 @@
         <%= f.text_field :presentation, class: "form-control", autocomplete: "off", placeholder: translated_model_attribute("option_value", "presentation") %>
       </div>
       <%= content_tag(:div, class: "remove-option-value") do %>
-        <%= link_to_remove_association material_icon("delete"), f, class: "btn btn-danger" %>
+        <%= link_to_remove_association material_icon("delete"), f, class: "btn-destroy" %>
       <% end %>
     </div>
   </div>

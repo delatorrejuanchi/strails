@@ -1,4 +1,4 @@
-<%= form_with(model: [:backend, product], local: true, class: "product-form") do |form| %>
+<%= form_with(model: [:backend, product], local: true) do |form| %>
   <%= error_messages_for(product) %>
 
   <div class="row">
@@ -41,15 +41,15 @@
   <% end %>
 
   <div class="actions">
-    <%= form.submit class: "btn btn-success" %>
+    <%= form.submit class: "btn-submit" %>
 
     <% if product.persisted? %>
-      <%= link_to(backend_product_path(product), method: :delete, class: "btn btn-outline-danger ml-3") do %>
+      <%= link_to(backend_product_path(product), method: :delete, class: "btn-destroy ml-3") do %>
         <%= material_icon "delete" %> <%= t("destroy") %>
       <% end %>
     <% end %>
 
-    <%= link_to(backend_products_path, class: "btn btn-outline-secondary ml-3") do %>
+    <%= link_to(backend_products_path, class: "btn-cancel ml-3") do %>
       <%= material_icon "clear" %> <%= t("cancel") %>
     <% end %>
   </div>

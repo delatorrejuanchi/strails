@@ -48,17 +48,19 @@
   }
 }
 
-.card-header {
-  @extend .d-flex;
-  @extend .align-items-baseline;
+.card {
+  .card-header {
+    @extend .d-flex;
+    @extend .align-items-baseline;
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @extend .mb-0;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @extend .mb-0;
+    }
   }
 }
 
@@ -69,9 +71,28 @@
 
   .actions {
     @extend .text-center;
-  }
 
-  .actions-2 {
-    width: 114px;
+    &.actions-2 { width: 114px; }
   }
+}
+
+.btn-new,
+.btn-submit {
+  @extend .btn;
+  @extend .btn-success;
+}
+
+.btn-edit {
+  @extend .btn;
+  @extend .btn-secondary;
+}
+
+.btn-destroy {
+  @extend .btn;
+  @extend .btn-danger;
+}
+
+.btn-cancel {
+  @extend .btn;
+  @extend .btn-outline-secondary;
 }

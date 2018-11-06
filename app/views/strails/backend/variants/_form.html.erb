@@ -1,4 +1,4 @@
-<%= form_with(model: [:backend, product, variant], local: true, class: "variant-form") do |form| %>
+<%= form_with(model: [:backend, product, variant], local: true) do |form| %>
   <%= error_messages_for(variant) %>
 
   <div class="form-group">
@@ -24,15 +24,15 @@
   <% end %>
 
   <div class="actions">
-    <%= form.submit class: "btn btn-success" %>
+    <%= form.submit class: "btn-submit" %>
 
     <% if variant.persisted? %>
-      <%= link_to(backend_product_variant_path(product, variant), method: :delete, class: "btn btn-outline-danger ml-3") do %>
+      <%= link_to(backend_product_variant_path(product, variant), method: :delete, class: "btn-destroy ml-3") do %>
         <%= material_icon "delete" %> <%= t("destroy") %>
       <% end %>
     <% end %>
 
-    <%= link_to(backend_product_variants_path(product), class: "btn btn-outline-secondary ml-3") do %>
+    <%= link_to(backend_product_variants_path(product), class: "btn-cancel ml-3") do %>
       <%= material_icon "clear" %> <%= t("cancel") %>
     <% end %>
   </div>

@@ -22,8 +22,8 @@
                 <td class="presentation"><%= option_type.presentation %></td>
                 <td class="option-values"><%= option_type.option_values.map(&:pretty_name).join(", ") %></td>
                 <td class="actions actions-2">
-                  <%= link_to material_icon("edit"), edit_backend_option_type_path(option_type), class: "btn btn-sm btn-secondary" %>
-                  <%= link_to material_icon("delete"), backend_option_type_path(option_type), method: :delete, class: "btn btn-sm btn-danger" %>
+                  <%= link_to material_icon("edit"), edit_backend_option_type_path(option_type), class: "btn-edit btn-sm" %>
+                  <%= link_to material_icon("delete"), backend_option_type_path(option_type), method: :delete, class: "btn-destroy btn-sm" %>
                 </td>
               </tr>
             <% end %>
@@ -31,7 +31,7 @@
         </table>
       </div>
 
-      <%= link_to t("new_option_type"), new_backend_option_type_path, class: "btn btn-success" %>
+      <%= link_to t("new_option_type"), new_backend_option_type_path, class: "btn-new" %>
     </div>
   </div>
 </div>

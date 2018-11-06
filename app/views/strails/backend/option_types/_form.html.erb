@@ -1,4 +1,4 @@
-<%= form_with(model: [:backend, option_type], local: true, class: "option-type-form") do |form| %>
+<%= form_with(model: [:backend, option_type], local: true) do |form| %>
   <%= error_messages_for(option_type) %>
 
   <div class="form-group">
@@ -13,8 +13,9 @@
 
   <hr class="divider">
 
-  <h5 class="mb-3"><%= translated_model_attribute("option_type", "option_values") %></h5>
   <div id="option-values">
+    <h5 class="mb-3"><%= translated_model_attribute("option_type", "option_values") %></h5>
+
     <%= form.fields_for :option_values do |option_values_form| %>
       <%= render partial: "option_value_fields", locals: { f: option_values_form } %>
     <% end %>
@@ -29,15 +30,15 @@
   <hr class="divider">
 
   <div class="actions">
-    <%= form.submit class: "btn btn-success" %>
+    <%= form.submit class: "btn-submit" %>
 
     <% if option_type.persisted? %>
-      <%= link_to(backend_option_type_path(@option_type), method: :delete, class: "btn btn-outline-danger ml-3") do %>
+      <%= link_to(backend_option_type_path(@option_type), method: :delete, class: "btn-destroy ml-3") do %>
         <%= material_icon "delete" %> Destroy
       <% end %>
     <% end %>
 
-    <%= link_to(backend_option_types_path, class: "btn btn-outline-secondary ml-3") do %>
+    <%= link_to(backend_option_types_path, class: "btn-cancel ml-3") do %>
       <%= material_icon "clear" %> Cancel
     <% end %>
   </div>

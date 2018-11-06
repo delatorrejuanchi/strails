@@ -29,6 +29,7 @@ en:
         price: Price
         is_master: Is Master
         option_values: Option Values
+        extra_price: Extra Price
 
   backend: Backend
   dashboard: Dashboard
@@ -39,7 +40,6 @@ en:
   new_variant: New Variant
 
   option_values_for: Option Values for
-  extra_price: Extra Price
 
   choose_locale: Choose language
 
