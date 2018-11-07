@@ -8,10 +8,6 @@ module Strails
       @option_value_variant = strails_option_value_variants(:default)
     end
 
-    def new_params(options = {})
-      super.merge(option_value: strails_option_values(:default).dup, variant: strails_variants(:default).dup)
-    end
-
     test "has valid fixtures" do
       OptionValueVariant.all.each do |option_value_variant|
         assert option_value_variant.valid?
@@ -23,12 +19,6 @@ module Strails
 
       assert option_value_variant.invalid?
       assert_has_errors_on option_value_variant, :option_value, :variant
-    end
-
-    test "is invalid when it is a duplicate" do
-      duplicate = @option_value_variant.dup
-
-      assert duplicate.invalid?
     end
 
     test "does not raise errors when created" do

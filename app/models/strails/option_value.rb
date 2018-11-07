@@ -2,14 +2,13 @@
 
 module Strails
   class OptionValue < ApplicationRecord
-    belongs_to :option_type, class_name: "Strails::OptionType", inverse_of: :option_values
-    has_many :option_value_variants,
-             class_name: "Strails::OptionValueVariant",
-             dependent: :destroy,
-             inverse_of: :option_value
-    has_many :variants, through: :option_value_variants, class_name: "Strails::Variant"
+    belongs_to :option_type, inverse_of: :option_values
+    has_many :option_value_variants, dependent: :destroy, inverse_of: :option_value
+    has_many :variants, through: :option_value_variants
 
-    validates :name, :presentation, :option_type, presence: true
+    validates :name, presence: true
+    validates :option_type, presence: true
+    validates :presentation, presence: true
 
     def pretty_name
       "#{presentation} (#{name})"

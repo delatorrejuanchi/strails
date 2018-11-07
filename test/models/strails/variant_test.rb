@@ -10,7 +10,7 @@ module Strails
     end
 
     def new_params(options = {})
-      super.merge(option_values: @variant.option_values)
+      super.merge(option_values: @variant.option_values).merge(options)
     end
 
     test "has valid fixtures" do
@@ -31,6 +31,14 @@ module Strails
 
       assert variant.invalid?
       assert_has_errors_on variant, :product
+    end
+
+    test "is invalid if it has more than one option value of the same option type" do
+      option_values = [strails_option_values(:type_one_value_one), strails_option_values(:type_one_value_two)]
+      variant = Variant.new(new_params(option_values: option_values))
+
+      assert variant.invalid?
+      assert_has_errors_on variant, :option_values
     end
 
     test "sets default sku and price" do
